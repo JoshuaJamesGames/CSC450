@@ -60,25 +60,29 @@ int main(int argc, char const *argv[])
     cout << "Let's collect some information" << endl;
 
     //Prompt for 3 Values with inputDouble
-    cout << "How many standard hours were worked? " << '\n';
+    cout << "\nHow many standard hours were worked? ";
     inputDouble(ptr_standardHoursWorked);
 
-    cout << "How many overtime hours were worked? " << '\n';
+    cout << "\nHow many overtime hours were worked? ";
     inputDouble(ptr_overtimeHoursWorked);
 
-    cout<< "What is the rate of pay? " << '\n';
+    cout<< "\nWhat is the rate of pay? ";
     inputDouble(ptr_rateOfPay);
 
     //Calculate and modify overTimeHours value
     *ptr_overtimeHoursWorked *= 1.5;
 
     //Output
-    cout << "The pay calculations are as follows: \n";
-    cout << "Standard Hours worked: " << fixed << setprecision(2);
-    cout << setw(10) << *ptr_standardHoursWorked << '\n';
-    cout << "Overtime Hours worked: ";
-    cout << setw(10) << *ptr_overtimeHoursWorked << '\n';
-    cout << "Total Hours worked: " << *ptr_standardHoursWorked + *ptr_overtimeHoursWorked << '\n';
+    cout << "\nThe pay calculations are as follows:";
+    cout << "\nStandard Hours worked: " << fixed << setprecision(2);
+    cout << setw(10) << *ptr_standardHoursWorked << " @" << (*ptr_rateOfPay); 
+    cout << " earning $" << *ptr_standardHoursWorked * (*ptr_rateOfPay);
+    cout << "\nOvertime Hours worked: ";
+    cout << setw(10) << *ptr_overtimeHoursWorked << " @" << *ptr_rateOfPay * 1.5;
+    cout << " earning $" << *ptr_overtimeHoursWorked * 1.5 * (*ptr_rateOfPay);
+    
+    cout << "\nTotal Hours worked: " << setw(13) << *ptr_standardHoursWorked + *ptr_overtimeHoursWorked << " hours";
+    cout<< "\nTotal Earnings: " << setw(13) << "$" << (*ptr_standardHoursWorked + (*ptr_overtimeHoursWorked * 1.5)) * (*ptr_rateOfPay);
 
     //Free Memory
     delete ptr_standardHoursWorked;
