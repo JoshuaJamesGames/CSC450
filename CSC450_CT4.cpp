@@ -72,15 +72,20 @@ int main(int argc, char const *argv[])
     //Calculate and modify overTimeHours value
     *ptr_overtimeHoursWorked *= 1.5;
 
-    //Output
+    //Output created columns using setw and 2 decimal places using setprecision
     cout << "\nThe pay calculations are as follows:";
+    
+    //Standard hours
     cout << "\nStandard Hours worked: " << fixed << setprecision(2);
     cout << setw(10) << *ptr_standardHoursWorked << " @" << (*ptr_rateOfPay); 
     cout << " earning $" << *ptr_standardHoursWorked * (*ptr_rateOfPay);
+
+    //Overtime hours
     cout << "\nOvertime Hours worked: ";
     cout << setw(10) << *ptr_overtimeHoursWorked << " @" << *ptr_rateOfPay * 1.5;
     cout << " earning $" << *ptr_overtimeHoursWorked * 1.5 * (*ptr_rateOfPay);
     
+    //Total hours
     cout << "\nTotal Hours worked: " << setw(13) << *ptr_standardHoursWorked + *ptr_overtimeHoursWorked << " hours";
     cout<< "\nTotal Earnings: " << setw(13) << "$" << (*ptr_standardHoursWorked + (*ptr_overtimeHoursWorked * 1.5)) * (*ptr_rateOfPay);
 
