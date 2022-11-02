@@ -32,12 +32,12 @@ void inputDouble(double *ptr_input)
       
        cin >> *ptr_input;
        //If the input can be assigned, break out of loop
-       if(cin.good()){
+       if(cin.good() && (*ptr_input >= 0)){
            break;
        //Otherwise, output feedback and clear input buffer
        }else{
            cout << "Incorrect Input!" << endl;
-           cout << "Please enter an Number: ";
+           cout << "Please enter a Positive Number: ";
            cin.clear();
            cin.ignore(INT_MAX,'\n');
        }
@@ -74,7 +74,7 @@ int main(int argc, char const *argv[])
 
     //Output created columns using setw and 2 decimal places using setprecision
     cout << "\nThe pay calculations are as follows:";
-    
+
     //Standard hours
     cout << "\nStandard Hours worked: " << fixed << setprecision(2);
     cout << setw(10) << *ptr_standardHoursWorked << " @" << (*ptr_rateOfPay); 
