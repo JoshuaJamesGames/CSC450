@@ -24,15 +24,15 @@ manage dynamic memory.
 
 using namespace std;
 
-//Input validation function for double only
-void inputDouble(double *ptr_input)
+//Input validation function for positive double with limit
+void inputDouble(double *ptr_input, double limit)
 {
    //Input loop
    while(true){
       
        cin >> *ptr_input;
        //If the input can be assigned, break out of loop
-       if(cin.good() && (*ptr_input >= 0)){
+       if(cin.good() && (*ptr_input >= 0) && (*ptr_input <= limit)){
            break;
        //Otherwise, output feedback and clear input buffer
        }else{
@@ -51,6 +51,12 @@ int main(int argc, char const *argv[])
     double *ptr_overtimeHoursWorked = new double();
     double *ptr_rateOfPay = new double();
 
+    //Limits for range validation
+    //24*7*365
+    const double MAX_HOURS = 61320.0;
+    //Sqrt(DOUB_MAX_VALUE)
+    const double MAX_PAY = 1.34078e+154;
+
     if(!ptr_standardHoursWorked || !ptr_overtimeHoursWorked || !ptr_rateOfPay){
        cout << "Memory allocation failed!" << endl;
        return 0;
@@ -61,13 +67,13 @@ int main(int argc, char const *argv[])
 
     //Prompt for 3 Values with inputDouble
     cout << "\nHow many standard hours were worked? ";
-    inputDouble(ptr_standardHoursWorked);
+    inputDouble(ptr_standardHoursWorked, MAX_HOURS);
 
     cout << "\nHow many overtime hours were worked? ";
-    inputDouble(ptr_overtimeHoursWorked);
+    inputDouble(ptr_overtimeHoursWorked, MAX_HOURS);
 
     cout<< "\nWhat is the rate of pay? ";
-    inputDouble(ptr_rateOfPay);
+    inputDouble(ptr_rateOfPay, MAX_PAY);
 
     //Calculate and modify overTimeHours value
     *ptr_overtimeHoursWorked *= 1.5;
