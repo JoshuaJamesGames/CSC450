@@ -1,6 +1,6 @@
 Please be sure to append your data to this text file.
 
 If these first three lines are deleted, then your program is not functioning as expected.
-This is another line added
-I dunno, how about this text
-Let's add a short sentence
+Just a little line of text.
+A longer line of text, to make sure the string copy can handle such a big buffer
+Garbage random at end

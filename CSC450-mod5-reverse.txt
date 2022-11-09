@@ -1,6 +1,6 @@
 .elif txet siht ot atad ruoy dneppa ot erus eb esaelP
 
 .detcepxe sa gninoitcnuf ton si margorp ruoy neht ,deteled era senil eerht tsrif eseht fI
-dedda enil rehtona si sihT
-txet siht tuoba woh ,onnud I
-ecnetnes trohs a dda s'teL
+.txet fo enil elttil a tsuJ
+reffub gib a hcus eldnah nac ypoc gnirts eht erus ekam ot ,txet fo enil regnol A
+dne ta modnar egabraG
