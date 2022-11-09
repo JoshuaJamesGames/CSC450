@@ -27,21 +27,29 @@ void fileInput(string fileName)
         string buffer;
         fstream outputFile;
 
+        //Open file
         outputFile.open(fileName, ios::out | ios::app);
-        cout << "What would you like to add to " << fileName << "?" << endl;
 
-        getline(cin, buffer);
+        //Verify file open and proceed with input
+        if(outputFile.is_open()){
+            cout << "What would you like to add to " << fileName << "?" << endl;
 
-        if(cin.good()){
-            outputFile << endl << buffer;
-            cout << "\nYour comments have been added" << endl;
-            break;
-        //Otherwise, output feedback and clear input buffer
+            getline(cin, buffer);
+
+            if(cin.good()){
+                outputFile << endl << buffer;
+                cout << "\nYour comments have been added" << endl;
+                break;
+            //Otherwise, output feedback and clear input buffer
+            }else{
+                cout << "\nIncorrect Input!" << endl;
+                cout << "Please enter a valid String: ";            
+            }
+            outputFile.close();
         }else{
-            cout << "\nIncorrect Input!" << endl;
-            cout << "Please enter a valid String: ";            
+            cout << fileName << " failed to open" << endl;
+            break;
         }
-        outputFile.close();
    }
 }
 
@@ -51,18 +59,26 @@ void reverseText(string inputFileName, string outputFileName)
     ifstream inputFile;
     ofstream outputFile;
 
+    //Open files
     inputFile.open(inputFileName, ios::in);
     outputFile.open(outputFileName, ios::out);
 
-    cout << "\nCreated " << outputFileName << " concatenating reversed text" << endl;
+    //Verify file open and proceed
+    if(inputFile.is_open() && outputFile.is_open()){
+        cout << "\nCreated " << outputFileName << " concatenating reversed text" << endl;
 
-    while(getline(inputFile, buffer)){
-        reverse(buffer.begin(), buffer.end());
-        outputFile << buffer << endl;
+        //Iterate through inputFile and write it to outputFile
+        while(getline(inputFile, buffer)){
+            reverse(buffer.begin(), buffer.end());
+            outputFile << buffer << endl;
+        }
+        //Close files
+        inputFile.close();
+        outputFile.close();        
+    }else{
+        cout << "File opening error!" << endl;
     }
-
-    inputFile.close();
-    outputFile.close();
+    
 
 }
 
