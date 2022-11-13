@@ -85,7 +85,7 @@ void reverseText(string inputFileName, string outputFileName)
 int main(int argc, char const *argv[])
 {
     //Variables - const because they don't change
-    const string requiredFile = "CSC450_CT5.mod5.txt";
+    const string requiredFile = "CSC450_CT5_mod5.txt";
     const string reverseOutputFile = "CSC450-mod5-reverse.txt";
     
     //Intro
