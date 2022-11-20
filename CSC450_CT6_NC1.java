@@ -1,7 +1,7 @@
 import java.io.Console;
 import java.io.IOException;
 
-class Password {
+class CSC450_CT6_NC1{
     public static void main (String args[]) throws IOException {
       Console c = System.console();
       if (c == null) {
